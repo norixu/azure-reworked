@@ -4,8 +4,8 @@ local colorSettings = {
 		["HeaderShadingColor"] = Color3.fromRGB(18, 18, 18),
 		["HeaderTextColor"] = Color3.fromRGB(255, 255, 255),
 		["MainBackgroundColor"] = Color3.fromRGB(18, 18, 18),
-		["InfoScrollingFrameBgColor"] = Color3.fromRGB(18, 18, 18),
-		["ScrollBarImageColor"] = Color3.fromRGB(80, 80, 80)
+		["InfoScrollingFrameBgColor"] = Color3.fromRGB(255, 255, 255),
+		["ScrollBarImageColor"] = Color3.fromRGB(255, 255, 255)
 	},
 	["RemoteButtons"] = {
 		["BorderColor"] = Color3.fromRGB(50, 50, 50),
@@ -126,7 +126,7 @@ function Turtle:Window(Text)
 	RemoteScrollFrame.Position = UDim2.new(0, 0, 1.02292562, 0)
 	RemoteScrollFrame.Size = UDim2.new(0, LEFT_PANEL_WIDTH, 0, 286)
 	RemoteScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 287)
-	RemoteScrollFrame.ScrollBarThickness = 8
+	RemoteScrollFrame.ScrollBarThickness = 4
 	RemoteScrollFrame.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Left
 	RemoteScrollFrame.ScrollBarImageColor3 = colorSettings["Main"]["ScrollBarImageColor"]
 	local scrollCorner = Instance.new("UICorner")
