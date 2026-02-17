@@ -25,7 +25,7 @@ local colorSettings = {
 	},
 }
 local settings = {
-	["Keybind"] = "P"
+	["Keybind"] = "F2"
 }
 function Parent(GUI)
 	if syn and syn.protect_gui then
@@ -49,6 +49,8 @@ function Turtle:Window(Text)
 	local LEFT_PANEL_WIDTH = 207
 	local RIGHT_PANEL_WIDTH = 357
 	local EXPANDED_WIDTH = LEFT_PANEL_WIDTH + RIGHT_PANEL_WIDTH
+	local HEADER_HEIGHT = 35
+	local CONTENT_HEIGHT = 287
 	local buttonOffset = -25
 	local TurtleSpyGUI = Instance.new("ScreenGui")
 	local mainFrame = Instance.new("Frame")
@@ -74,12 +76,12 @@ function Turtle:Window(Text)
 	mainFrame.BorderColor3 = colorSettings["Main"]["MainBackgroundColor"]
 	mainFrame.BorderSizePixel = 0
 	mainFrame.Position = UDim2.new(0.100000001, 0, 0.239999995, 0)
-	mainFrame.Size = UDim2.new(0, LEFT_PANEL_WIDTH, 0, 35)
+	mainFrame.Size = UDim2.new(0, LEFT_PANEL_WIDTH, 0, HEADER_HEIGHT)
 	mainFrame.ZIndex = 8
 	mainFrame.Active = true
 	mainFrame.Draggable = true
 	local mainCorner = Instance.new("UICorner")
-	mainCorner.CornerRadius = UDim.new(0, 8)
+	mainCorner.CornerRadius = UDim.new(0, 12)
 	mainCorner.Parent = mainFrame
 	mouse.KeyDown:Connect(function(key)
 		if key:lower() == settings["Keybind"]:lower() then
@@ -94,7 +96,7 @@ function Turtle:Window(Text)
 	Header.Size = UDim2.new(1, 0, 0, 26)
 	Header.ZIndex = 9
 	local headerCorner = Instance.new("UICorner")
-	headerCorner.CornerRadius = UDim.new(0, 8)
+	headerCorner.CornerRadius = UDim.new(0, 12)
 	headerCorner.Parent = Header
 	HeaderShading.Name = "HeaderShading"
 	HeaderShading.Parent = Header
@@ -105,7 +107,7 @@ function Turtle:Window(Text)
 	HeaderShading.Size = UDim2.new(1, 0, 0, 27)
 	HeaderShading.ZIndex = 8
 	local shadingCorner = Instance.new("UICorner")
-	shadingCorner.CornerRadius = UDim.new(0, 8)
+	shadingCorner.CornerRadius = UDim.new(0, 12)
 	shadingCorner.Parent = HeaderShading
 	HeaderTextLabel.Name = "HeaderTextLabel"
 	HeaderTextLabel.Parent = HeaderShading
@@ -124,13 +126,14 @@ function Turtle:Window(Text)
 	RemoteScrollFrame.BorderColor3 = colorSettings["Main"]["MainBackgroundColor"]
 	RemoteScrollFrame.BorderSizePixel = 0
 	RemoteScrollFrame.Position = UDim2.new(0, 0, 1.02292562, 0)
-	RemoteScrollFrame.Size = UDim2.new(0, LEFT_PANEL_WIDTH, 0, 286)
+	RemoteScrollFrame.Size = UDim2.new(0, LEFT_PANEL_WIDTH, 0, CONTENT_HEIGHT)
 	RemoteScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 287)
 	RemoteScrollFrame.ScrollBarThickness = 4
 	RemoteScrollFrame.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Left
 	RemoteScrollFrame.ScrollBarImageColor3 = colorSettings["Main"]["ScrollBarImageColor"]
+	RemoteScrollFrame.ScrollBarImageTransparency = 0.3
 	local scrollCorner = Instance.new("UICorner")
-	scrollCorner.CornerRadius = UDim.new(0, 8)
+	scrollCorner.CornerRadius = UDim.new(0, 12)
 	scrollCorner.Parent = RemoteScrollFrame
 	RemoteButton.Name = "RemoteButton"
 	RemoteButton.Parent = RemoteScrollFrame
@@ -149,7 +152,7 @@ function Turtle:Window(Text)
 	RemoteButton.TextXAlignment = Enum.TextXAlignment.Left
 	RemoteButton.Visible = false
 	local remoteCorner = Instance.new("UICorner")
-	remoteCorner.CornerRadius = UDim.new(0, 6)
+	remoteCorner.CornerRadius = UDim.new(0, 8)
 	remoteCorner.Parent = RemoteButton
 	RemoteName.Name = "RemoteName"
 	RemoteName.Parent = RemoteButton
@@ -167,12 +170,12 @@ function Turtle:Window(Text)
 	InfoFrame.BackgroundColor3 = colorSettings["Main"]["MainBackgroundColor"]
 	InfoFrame.BorderColor3 = colorSettings["Main"]["MainBackgroundColor"]
 	InfoFrame.BorderSizePixel = 0
-	InfoFrame.Position = UDim2.new(0, LEFT_PANEL_WIDTH, 0, -5.58035717e-05)
-	InfoFrame.Size = UDim2.new(0, RIGHT_PANEL_WIDTH, 0, 322)
+	InfoFrame.Position = UDim2.new(0, LEFT_PANEL_WIDTH, 0, 0)
+	InfoFrame.Size = UDim2.new(0, RIGHT_PANEL_WIDTH, 0, HEADER_HEIGHT + CONTENT_HEIGHT)
 	InfoFrame.Visible = false
 	InfoFrame.ZIndex = 6
 	local infoCorner = Instance.new("UICorner")
-	infoCorner.CornerRadius = UDim.new(0, 8)
+	infoCorner.CornerRadius = UDim.new(0, 12)
 	infoCorner.Parent = InfoFrame
 	InfoFrameHeader.Name = "InfoFrameHeader"
 	InfoFrameHeader.Parent = InfoFrame
@@ -182,7 +185,7 @@ function Turtle:Window(Text)
 	InfoFrameHeader.Size = UDim2.new(1, 0, 0, 26)
 	InfoFrameHeader.ZIndex = 14
 	local infoHeaderCorner = Instance.new("UICorner")
-	infoHeaderCorner.CornerRadius = UDim.new(0, 8)
+	infoHeaderCorner.CornerRadius = UDim.new(0, 12)
 	infoHeaderCorner.Parent = InfoFrameHeader
 	InfoTitleShading.Name = "InfoTitleShading"
 	InfoTitleShading.Parent = InfoFrame
@@ -193,7 +196,7 @@ function Turtle:Window(Text)
 	InfoTitleShading.Size = UDim2.new(1, 0, 0, 34)
 	InfoTitleShading.ZIndex = 13
 	local titleShadingCorner = Instance.new("UICorner")
-	titleShadingCorner.CornerRadius = UDim.new(0, 8)
+	titleShadingCorner.CornerRadius = UDim.new(0, 12)
 	titleShadingCorner.Parent = InfoTitleShading
 	InfoHeaderText.Name = "InfoHeaderText"
 	InfoHeaderText.Parent = InfoFrame
@@ -219,12 +222,12 @@ function Turtle:Window(Text)
 	CloseInfoFrame.TextColor3 = Color3.fromRGB(255, 255, 255)
 	CloseInfoFrame.TextSize = 20.000
 	local closeCorner = Instance.new("UICorner")
-	closeCorner.CornerRadius = UDim.new(0, 6)
+	closeCorner.CornerRadius = UDim.new(0, 8)
 	closeCorner.Parent = CloseInfoFrame
 	CloseInfoFrame.MouseButton1Click:Connect(function()
 		InfoFrame.Visible = false
 		InfoFrameOpen = false
-		local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, LEFT_PANEL_WIDTH, 0, 35)})
+		local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, LEFT_PANEL_WIDTH, 0, HEADER_HEIGHT)})
 		tween:Play()
 	end)
 	OpenInfoFrame.Name = "OpenInfoFrame"
@@ -240,16 +243,16 @@ function Turtle:Window(Text)
 	OpenInfoFrame.TextColor3 = Color3.fromRGB(255, 255, 255)
 	OpenInfoFrame.TextSize = 16.000
 	local openCorner = Instance.new("UICorner")
-	openCorner.CornerRadius = UDim.new(0, 6)
+	openCorner.CornerRadius = UDim.new(0, 8)
 	openCorner.Parent = OpenInfoFrame
 	OpenInfoFrame.MouseButton1Click:Connect(function()
 		if not InfoFrame.Visible then
-			local targetSize = UDim2.new(0, EXPANDED_WIDTH, 0, 35)
+			local targetSize = UDim2.new(0, EXPANDED_WIDTH, 0, HEADER_HEIGHT + CONTENT_HEIGHT)
 			local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = targetSize})
 			tween:Play()
 			OpenInfoFrame.Text = "<"
 		else
-			local targetSize = UDim2.new(0, LEFT_PANEL_WIDTH, 0, 35)
+			local targetSize = UDim2.new(0, LEFT_PANEL_WIDTH, 0, HEADER_HEIGHT + CONTENT_HEIGHT)
 			local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = targetSize})
 			tween:Play()
 			OpenInfoFrame.Text = ">"
@@ -270,11 +273,11 @@ function Turtle:Window(Text)
 	Minimize.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Minimize.TextSize = 16.000
 	local minCorner = Instance.new("UICorner")
-	minCorner.CornerRadius = UDim.new(0, 6)
+	minCorner.CornerRadius = UDim.new(0, 8)
 	minCorner.Parent = Minimize
 	Minimize.MouseButton1Click:Connect(function()
 		if RemoteScrollFrame.Visible then
-			local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, LEFT_PANEL_WIDTH, 0, 35)})
+			local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, LEFT_PANEL_WIDTH, 0, HEADER_HEIGHT)})
 			tween:Play()
 			OpenInfoFrame.Text = "<"
 			InfoFrame.Visible = false
@@ -284,12 +287,12 @@ function Turtle:Window(Text)
 		else
 			RemoteScrollFrame.Visible = true
 			if InfoFrameOpen then
-				local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, EXPANDED_WIDTH, 0, 35)})
+				local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, EXPANDED_WIDTH, 0, HEADER_HEIGHT + CONTENT_HEIGHT)})
 				tween:Play()
 				OpenInfoFrame.Text = "<"
 				InfoFrame.Visible = true
 			else
-				local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, LEFT_PANEL_WIDTH, 0, 35)})
+				local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, LEFT_PANEL_WIDTH, 0, HEADER_HEIGHT + CONTENT_HEIGHT)})
 				tween:Play()
 				OpenInfoFrame.Text = ">"
 				InfoFrame.Visible = false
@@ -298,10 +301,10 @@ function Turtle:Window(Text)
 	end)
 	local function addHoverEffect(button, normalColor, hoverColor)
 		button.MouseEnter:Connect(function()
-			TweenService:Create(button, TweenInfo.new(0.2), {BackgroundColor3 = hoverColor}):Play()
+			TweenService:Create(button, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = hoverColor}):Play()
 		end)
 		button.MouseLeave:Connect(function()
-			TweenService:Create(button, TweenInfo.new(0.2), {BackgroundColor3 = normalColor}):Play()
+			TweenService:Create(button, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = normalColor}):Play()
 		end)
 	end
 	addHoverEffect(CloseInfoFrame, colorSettings["Main"]["HeaderColor"], Color3.fromRGB(40, 40, 40))
@@ -329,13 +332,14 @@ function Turtle:Window(Text)
 		tabButtonsScroll.Position = UDim2.new(0.0391303748, 0, 0.12, 0)
 		tabButtonsScroll.Size = UDim2.new(0, 329, 0, 250)
 		tabButtonsScroll.ZIndex = 11
-		tabButtonsScroll.CanvasSize = UDim2.new(0, 0, 1, 0)
-		tabButtonsScroll.ScrollBarThickness = 8
+		tabButtonsScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
+		tabButtonsScroll.ScrollBarThickness = 4
 		tabButtonsScroll.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Left
 		tabButtonsScroll.ScrollBarImageColor3 = colorSettings["Main"]["ScrollBarImageColor"]
+		tabButtonsScroll.ScrollBarImageTransparency = 0.3
 		tabButtonsScroll.Visible = false
 		local tabScrollCorner = Instance.new("UICorner")
-		tabScrollCorner.CornerRadius = UDim.new(0, 8)
+		tabScrollCorner.CornerRadius = UDim.new(0, 12)
 		tabScrollCorner.Parent = tabButtonsScroll
 		rButton.MouseButton1Click:Connect(function()
 			if activeContent then
@@ -373,7 +377,7 @@ function Turtle:Window(Text)
 			TextBox.TextStrokeColor3 = Color3.fromRGB(245, 246, 250)
 			TextBox.ZIndex = 15
 			local boxCorner = Instance.new("UICorner")
-			boxCorner.CornerRadius = UDim.new(0, 6)
+			boxCorner.CornerRadius = UDim.new(0, 8)
 			boxCorner.Parent = TextBox
 			TextBox:GetPropertyChangedSignal('Text'):Connect(function()
 				callback(TextBox.Text, false)
@@ -454,7 +458,7 @@ function Turtle:Window(Text)
 			Dropdown.TextWrapped = true
 			Dropdown.ZIndex = 15
 			local dropdownCorner = Instance.new("UICorner")
-			dropdownCorner.CornerRadius = UDim.new(0, 6)
+			dropdownCorner.CornerRadius = UDim.new(0, 8)
 			dropdownCorner.Parent = Dropdown
 			DownSign.Name = "DownSign"
 			DownSign.Parent = Dropdown
@@ -482,9 +486,10 @@ function Turtle:Window(Text)
 			DropdownFrame.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Left
 			DropdownFrame.ZIndex = 17
 			DropdownFrame.ScrollingDirection = Enum.ScrollingDirection.Y
-			DropdownFrame.ScrollBarImageColor3 = Color3.fromRGB(220, 221, 225)
+			DropdownFrame.ScrollBarImageColor3 = colorSettings["Main"]["ScrollBarImageColor"]
+			DropdownFrame.ScrollBarImageTransparency = 0.3
 			local dropFrameCorner = Instance.new("UICorner")
-			dropFrameCorner.CornerRadius = UDim.new(0, 6)
+			dropFrameCorner.CornerRadius = UDim.new(0, 8)
 			dropFrameCorner.Parent = DropdownFrame
 			Dropdown.MouseButton1Click:Connect(function()
 				if DropdownFrame.Visible then
@@ -528,7 +533,7 @@ function Turtle:Window(Text)
 				Button_2.Text = name
 				Button_2.TextWrapped = true
 				local btnCorner = Instance.new("UICorner")
-				btnCorner.CornerRadius = UDim.new(0, 6)
+				btnCorner.CornerRadius = UDim.new(0, 8)
 				btnCorner.Parent = Button_2
 				canvasSize = canvasSize + 27
 				DropdownFrame.CanvasSize = UDim2.new(0, 294, 0, canvasSize + 1)
@@ -606,7 +611,7 @@ function Turtle:Window(Text)
 			ToggleButton.TextSize = 14.000
 			ToggleButton.ZIndex = 15
 			local toggleBtnCorner = Instance.new("UICorner")
-			toggleBtnCorner.CornerRadius = UDim.new(0, 6)
+			toggleBtnCorner.CornerRadius = UDim.new(0, 11)
 			toggleBtnCorner.Parent = ToggleButton
 			ToggleFiller.Name = "ToggleFiller"
 			ToggleFiller.Parent = ToggleButton
@@ -618,14 +623,14 @@ function Turtle:Window(Text)
 			ToggleFiller.Visible = on
 			ToggleFiller.ZIndex = 15
 			local fillerCorner = Instance.new("UICorner")
-			fillerCorner.CornerRadius = UDim.new(0, 3)
+			fillerCorner.CornerRadius = UDim.new(0, 6)
 			fillerCorner.Parent = ToggleFiller
 			ToggleButton.MouseButton1Click:Connect(function()
 				ToggleFiller.Visible = not ToggleFiller.Visible
 				if ToggleFiller.Visible then
-					TweenService:Create(ToggleFiller, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(200, 200, 200)}):Play()
+					TweenService:Create(ToggleFiller, TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(200, 200, 200)}):Play()
 				else
-					TweenService:Create(ToggleFiller, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(80, 80, 80)}):Play()
+					TweenService:Create(ToggleFiller, TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(80, 80, 80)}):Play()
 				end
 				callback(ToggleFiller.Visible)
 			end)
@@ -798,7 +803,7 @@ function Turtle:Window(Text)
 			btn.TextColor3 = Color3.fromRGB(250, 251, 255)
 			btn.TextSize = 16.000
 			local btnCorner = Instance.new("UICorner")
-			btnCorner.CornerRadius = UDim.new(0, 6)
+			btnCorner.CornerRadius = UDim.new(0, 8)
 			btnCorner.Parent = btn
 			btn.MouseButton1Click:Connect(function()
 				if callback then
