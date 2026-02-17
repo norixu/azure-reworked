@@ -46,6 +46,9 @@ if game.CoreGui:FindFirstChild("TurtleSpyGUI") then
 end
 local Turtle = {}
 function Turtle:Window(Text)
+	local LEFT_PANEL_WIDTH = 207
+	local RIGHT_PANEL_WIDTH = 357
+	local EXPANDED_WIDTH = LEFT_PANEL_WIDTH + RIGHT_PANEL_WIDTH
 	local buttonOffset = -25
 	local TurtleSpyGUI = Instance.new("ScreenGui")
 	local mainFrame = Instance.new("Frame")
@@ -60,7 +63,6 @@ function Turtle:Window(Text)
 	local InfoFrameHeader = Instance.new("Frame")
 	local InfoTitleShading = Instance.new("Frame")
 	local InfoHeaderText = Instance.new("TextLabel")
-	local FrameDivider = Instance.new("Frame")
 	local CloseInfoFrame = Instance.new("TextButton")
 	local OpenInfoFrame = Instance.new("TextButton")
 	local Minimize = Instance.new("TextButton")
@@ -70,8 +72,9 @@ function Turtle:Window(Text)
 	mainFrame.Parent = TurtleSpyGUI
 	mainFrame.BackgroundColor3 = colorSettings["Main"]["MainBackgroundColor"]
 	mainFrame.BorderColor3 = colorSettings["Main"]["MainBackgroundColor"]
+	mainFrame.BorderSizePixel = 0
 	mainFrame.Position = UDim2.new(0.100000001, 0, 0.239999995, 0)
-	mainFrame.Size = UDim2.new(0, 207, 0, 35)
+	mainFrame.Size = UDim2.new(0, LEFT_PANEL_WIDTH, 0, 35)
 	mainFrame.ZIndex = 8
 	mainFrame.Active = true
 	mainFrame.Draggable = true
@@ -87,7 +90,8 @@ function Turtle:Window(Text)
 	Header.Parent = mainFrame
 	Header.BackgroundColor3 = colorSettings["Main"]["HeaderColor"]
 	Header.BorderColor3 = colorSettings["Main"]["HeaderColor"]
-	Header.Size = UDim2.new(0, 207, 0, 26)
+	Header.BorderSizePixel = 0
+	Header.Size = UDim2.new(1, 0, 0, 26)
 	Header.ZIndex = 9
 	local headerCorner = Instance.new("UICorner")
 	headerCorner.CornerRadius = UDim.new(0, 8)
@@ -96,8 +100,9 @@ function Turtle:Window(Text)
 	HeaderShading.Parent = Header
 	HeaderShading.BackgroundColor3 = colorSettings["Main"]["HeaderShadingColor"]
 	HeaderShading.BorderColor3 = colorSettings["Main"]["HeaderShadingColor"]
-	HeaderShading.Position = UDim2.new(1.46719131e-07, 0, 0.285714358, 0)
-	HeaderShading.Size = UDim2.new(0, 207, 0, 27)
+	HeaderShading.BorderSizePixel = 0
+	HeaderShading.Position = UDim2.new(0, 0, 0.285714358, 0)
+	HeaderShading.Size = UDim2.new(1, 0, 0, 27)
 	HeaderShading.ZIndex = 8
 	local shadingCorner = Instance.new("UICorner")
 	shadingCorner.CornerRadius = UDim.new(0, 8)
@@ -117,8 +122,9 @@ function Turtle:Window(Text)
 	RemoteScrollFrame.Active = true
 	RemoteScrollFrame.BackgroundColor3 = colorSettings["Main"]["MainBackgroundColor"]
 	RemoteScrollFrame.BorderColor3 = colorSettings["Main"]["MainBackgroundColor"]
+	RemoteScrollFrame.BorderSizePixel = 0
 	RemoteScrollFrame.Position = UDim2.new(0, 0, 1.02292562, 0)
-	RemoteScrollFrame.Size = UDim2.new(0, 207, 0, 286)
+	RemoteScrollFrame.Size = UDim2.new(0, LEFT_PANEL_WIDTH, 0, 286)
 	RemoteScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 287)
 	RemoteScrollFrame.ScrollBarThickness = 8
 	RemoteScrollFrame.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Left
@@ -130,6 +136,7 @@ function Turtle:Window(Text)
 	RemoteButton.Parent = RemoteScrollFrame
 	RemoteButton.BackgroundColor3 = colorSettings["RemoteButtons"]["BackgroundColor"]
 	RemoteButton.BorderColor3 = colorSettings["RemoteButtons"]["BorderColor"]
+	RemoteButton.BorderSizePixel = 0
 	RemoteButton.Position = UDim2.new(0, 17, 0, 10)
 	RemoteButton.Size = UDim2.new(0, 182, 0, 26)
 	RemoteButton.Selected = true
@@ -159,8 +166,9 @@ function Turtle:Window(Text)
 	InfoFrame.Parent = mainFrame
 	InfoFrame.BackgroundColor3 = colorSettings["Main"]["MainBackgroundColor"]
 	InfoFrame.BorderColor3 = colorSettings["Main"]["MainBackgroundColor"]
-	InfoFrame.Position = UDim2.new(0.368141592, 0, -5.58035717e-05, 0)
-	InfoFrame.Size = UDim2.new(0, 357, 0, 322)
+	InfoFrame.BorderSizePixel = 0
+	InfoFrame.Position = UDim2.new(0, LEFT_PANEL_WIDTH, 0, -5.58035717e-05)
+	InfoFrame.Size = UDim2.new(0, RIGHT_PANEL_WIDTH, 0, 322)
 	InfoFrame.Visible = false
 	InfoFrame.ZIndex = 6
 	local infoCorner = Instance.new("UICorner")
@@ -170,7 +178,8 @@ function Turtle:Window(Text)
 	InfoFrameHeader.Parent = InfoFrame
 	InfoFrameHeader.BackgroundColor3 = colorSettings["Main"]["HeaderColor"]
 	InfoFrameHeader.BorderColor3 = colorSettings["Main"]["HeaderColor"]
-	InfoFrameHeader.Size = UDim2.new(0, 357, 0, 26)
+	InfoFrameHeader.BorderSizePixel = 0
+	InfoFrameHeader.Size = UDim2.new(1, 0, 0, 26)
 	InfoFrameHeader.ZIndex = 14
 	local infoHeaderCorner = Instance.new("UICorner")
 	infoHeaderCorner.CornerRadius = UDim.new(0, 8)
@@ -179,8 +188,9 @@ function Turtle:Window(Text)
 	InfoTitleShading.Parent = InfoFrame
 	InfoTitleShading.BackgroundColor3 = colorSettings["Main"]["HeaderShadingColor"]
 	InfoTitleShading.BorderColor3 = colorSettings["Main"]["HeaderShadingColor"]
-	InfoTitleShading.Position = UDim2.new(-0.00280881394, 0, 0, 0)
-	InfoTitleShading.Size = UDim2.new(0, 358, 0, 34)
+	InfoTitleShading.BorderSizePixel = 0
+	InfoTitleShading.Position = UDim2.new(0, 0, 0, 0)
+	InfoTitleShading.Size = UDim2.new(1, 0, 0, 34)
 	InfoTitleShading.ZIndex = 13
 	local titleShadingCorner = Instance.new("UICorner")
 	titleShadingCorner.CornerRadius = UDim.new(0, 8)
@@ -195,21 +205,12 @@ function Turtle:Window(Text)
 	InfoHeaderText.Text = "Tab Name"
 	InfoHeaderText.TextColor3 = colorSettings["Main"]["HeaderTextColor"]
 	InfoHeaderText.TextSize = 17.000
-	FrameDivider.Name = "FrameDivider"
-	FrameDivider.Parent = InfoFrame
-	FrameDivider.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-	FrameDivider.BorderColor3 = Color3.fromRGB(50, 50, 50)
-	FrameDivider.Position = UDim2.new(0, 3, 0, 0)
-	FrameDivider.Size = UDim2.new(0, 4, 0, 322)
-	FrameDivider.ZIndex = 7
-	local dividerCorner = Instance.new("UICorner")
-	dividerCorner.CornerRadius = UDim.new(0, 2)
-	dividerCorner.Parent = FrameDivider
 	local InfoFrameOpen = false
 	CloseInfoFrame.Name = "CloseInfoFrame"
 	CloseInfoFrame.Parent = InfoFrame
 	CloseInfoFrame.BackgroundColor3 = colorSettings["Main"]["HeaderColor"]
 	CloseInfoFrame.BorderColor3 = colorSettings["Main"]["HeaderColor"]
+	CloseInfoFrame.BorderSizePixel = 0
 	CloseInfoFrame.Position = UDim2.new(0, 333, 0, 2)
 	CloseInfoFrame.Size = UDim2.new(0, 22, 0, 22)
 	CloseInfoFrame.ZIndex = 18
@@ -223,13 +224,14 @@ function Turtle:Window(Text)
 	CloseInfoFrame.MouseButton1Click:Connect(function()
 		InfoFrame.Visible = false
 		InfoFrameOpen = false
-		local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, 207, 0, 35)})
+		local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, LEFT_PANEL_WIDTH, 0, 35)})
 		tween:Play()
 	end)
 	OpenInfoFrame.Name = "OpenInfoFrame"
 	OpenInfoFrame.Parent = mainFrame
 	OpenInfoFrame.BackgroundColor3 = colorSettings["Main"]["HeaderColor"]
 	OpenInfoFrame.BorderColor3 = colorSettings["Main"]["HeaderColor"]
+	OpenInfoFrame.BorderSizePixel = 0
 	OpenInfoFrame.Position = UDim2.new(0, 185, 0, 2)
 	OpenInfoFrame.Size = UDim2.new(0, 22, 0, 22)
 	OpenInfoFrame.ZIndex = 18
@@ -242,12 +244,12 @@ function Turtle:Window(Text)
 	openCorner.Parent = OpenInfoFrame
 	OpenInfoFrame.MouseButton1Click:Connect(function()
 		if not InfoFrame.Visible then
-			local targetSize = UDim2.new(0, 565, 0, 35)
+			local targetSize = UDim2.new(0, EXPANDED_WIDTH, 0, 35)
 			local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = targetSize})
 			tween:Play()
 			OpenInfoFrame.Text = "<"
 		else
-			local targetSize = UDim2.new(0, 207, 0, 35)
+			local targetSize = UDim2.new(0, LEFT_PANEL_WIDTH, 0, 35)
 			local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = targetSize})
 			tween:Play()
 			OpenInfoFrame.Text = ">"
@@ -259,6 +261,7 @@ function Turtle:Window(Text)
 	Minimize.Parent = mainFrame
 	Minimize.BackgroundColor3 = colorSettings["Main"]["HeaderColor"]
 	Minimize.BorderColor3 = colorSettings["Main"]["HeaderColor"]
+	Minimize.BorderSizePixel = 0
 	Minimize.Position = UDim2.new(0, 164, 0, 2)
 	Minimize.Size = UDim2.new(0, 22, 0, 22)
 	Minimize.ZIndex = 18
@@ -271,7 +274,7 @@ function Turtle:Window(Text)
 	minCorner.Parent = Minimize
 	Minimize.MouseButton1Click:Connect(function()
 		if RemoteScrollFrame.Visible then
-			local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, 207, 0, 35)})
+			local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, LEFT_PANEL_WIDTH, 0, 35)})
 			tween:Play()
 			OpenInfoFrame.Text = "<"
 			InfoFrame.Visible = false
@@ -281,12 +284,12 @@ function Turtle:Window(Text)
 		else
 			RemoteScrollFrame.Visible = true
 			if InfoFrameOpen then
-				local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, 565, 0, 35)})
+				local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, EXPANDED_WIDTH, 0, 35)})
 				tween:Play()
 				OpenInfoFrame.Text = "<"
 				InfoFrame.Visible = true
 			else
-				local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, 207, 0, 35)})
+				local tween = TweenService:Create(mainFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, LEFT_PANEL_WIDTH, 0, 35)})
 				tween:Play()
 				OpenInfoFrame.Text = ">"
 				InfoFrame.Visible = false
@@ -322,6 +325,7 @@ function Turtle:Window(Text)
 		tabButtonsScroll.Active = true
 		tabButtonsScroll.BackgroundColor3 = colorSettings["Main"]["MainBackgroundColor"]
 		tabButtonsScroll.BorderColor3 = colorSettings["Main"]["MainBackgroundColor"]
+		tabButtonsScroll.BorderSizePixel = 0
 		tabButtonsScroll.Position = UDim2.new(0.0391303748, 0, 0.12, 0)
 		tabButtonsScroll.Size = UDim2.new(0, 329, 0, 250)
 		tabButtonsScroll.ZIndex = 11
@@ -357,6 +361,7 @@ function Turtle:Window(Text)
 			TextBox.Parent = tabButtonsScroll
 			TextBox.BackgroundColor3 = colorSettings["RemoteButtons"]["BackgroundColor"]
 			TextBox.BorderColor3 = colorSettings["RemoteButtons"]["BorderColor"]
+			TextBox.BorderSizePixel = 0
 			TextBox.Position = UDim2.new(0.0645, 0, 0, tabButtonOffset + 10)
 			TextBox.Size = UDim2.new(0, 294, 0, 26)
 			TextBox.Font = Enum.Font.Gotham
@@ -403,6 +408,7 @@ function Turtle:Window(Text)
 			Label.BackgroundColor3 = Color3.fromRGB(220, 221, 225)
 			Label.BackgroundTransparency = 1.000
 			Label.BorderColor3 = Color3.fromRGB(27, 42, 53)
+			Label.BorderSizePixel = 0
 			Label.Position = UDim2.new(0.0645, 0, 0, tabButtonOffset + 10)
 			Label.Size = UDim2.new(0, 294, 0, 26)
 			Label.Font = Enum.Font.Gotham
@@ -436,6 +442,7 @@ function Turtle:Window(Text)
 			Dropdown.Parent = tabButtonsScroll
 			Dropdown.BackgroundColor3 = colorSettings["RemoteButtons"]["BackgroundColor"]
 			Dropdown.BorderColor3 = colorSettings["RemoteButtons"]["BorderColor"]
+			Dropdown.BorderSizePixel = 0
 			Dropdown.Position = UDim2.new(0.0645, 0, 0, tabButtonOffset + 10)
 			Dropdown.Size = UDim2.new(0, 294, 0, 26)
 			Dropdown.Selected = true
@@ -466,6 +473,7 @@ function Turtle:Window(Text)
 			DropdownFrame.Active = true
 			DropdownFrame.BackgroundColor3 = colorSettings["RemoteButtons"]["BackgroundColor"]
 			DropdownFrame.BorderColor3 = colorSettings["RemoteButtons"]["BorderColor"]
+			DropdownFrame.BorderSizePixel = 0
 			DropdownFrame.Position = UDim2.new(0, 0, 0, 28)
 			DropdownFrame.Size = UDim2.new(0, 294, 0, 0)
 			DropdownFrame.Visible = false
@@ -508,6 +516,7 @@ function Turtle:Window(Text)
 				Button_2.Parent = DropdownFrame
 				Button_2.BackgroundColor3 = colorSettings["RemoteButtons"]["BackgroundColor"]
 				Button_2.BorderColor3 = colorSettings["RemoteButtons"]["BorderColor"]
+				Button_2.BorderSizePixel = 0
 				Button_2.Position = UDim2.new(0, 6, 0, canvasSize + 1)
 				Button_2.Size = UDim2.new(0, 282, 0, 26)
 				Button_2.Selected = true
@@ -588,6 +597,7 @@ function Turtle:Window(Text)
 			ToggleButton.Parent = ToggleDescription
 			ToggleButton.BackgroundColor3 = colorSettings["RemoteButtons"]["BackgroundColor"]
 			ToggleButton.BorderColor3 = colorSettings["RemoteButtons"]["BorderColor"]
+			ToggleButton.BorderSizePixel = 0
 			ToggleButton.Position = UDim2.new(1.2061069, 0, 0.0769230798, 0)
 			ToggleButton.Size = UDim2.new(0, 22, 0, 22)
 			ToggleButton.Font = Enum.Font.Gotham
@@ -602,6 +612,7 @@ function Turtle:Window(Text)
 			ToggleFiller.Parent = ToggleButton
 			ToggleFiller.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
 			ToggleFiller.BorderColor3 = colorSettings["RemoteButtons"]["BorderColor"]
+			ToggleFiller.BorderSizePixel = 0
 			ToggleFiller.Position = UDim2.new(0, 5, 0, 5)
 			ToggleFiller.Size = UDim2.new(0, 12, 0, 12)
 			ToggleFiller.Visible = on
@@ -680,6 +691,7 @@ function Turtle:Window(Text)
 			Slider.Parent = tabButtonsScroll
 			Slider.BackgroundColor3 = colorSettings["Main"]["MainBackgroundColor"]
 			Slider.BorderColor3 = colorSettings["RemoteButtons"]["BorderColor"]
+			Slider.BorderSizePixel = 0
 			Slider.Position = UDim2.new(0.0645, 0, 0, tabButtonOffset + 45)
 			Slider.Size = UDim2.new(0, 289, 0, 6)
 			Slider.ZIndex = 15
@@ -693,6 +705,7 @@ function Turtle:Window(Text)
 			SliderButton.Parent = Slider
 			SliderButton.BackgroundColor3 = colorSettings["RemoteButtons"]["BackgroundColor"]
 			SliderButton.BorderColor3 = colorSettings["RemoteButtons"]["BorderColor"]
+			SliderButton.BorderSizePixel = 0
 			SliderButton.Size = UDim2.new(0, 6, 0, 22)
 			SliderButton.ZIndex = 16
 			local sliderBtnCorner = Instance.new("UICorner")
@@ -725,6 +738,7 @@ function Turtle:Window(Text)
 			SilderFiller.Parent = Slider
 			SilderFiller.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
 			SilderFiller.BorderColor3 = colorSettings["RemoteButtons"]["BorderColor"]
+			SilderFiller.BorderSizePixel = 0
 			SilderFiller.Size = UDim2.new(0, (Slider.Size.X.Offset - 5) * ((default - min)/(max-min)), 0, 6)
 			SilderFiller.ZIndex = 15
 			SilderFiller.BorderMode = Enum.BorderMode.Inset
@@ -775,6 +789,7 @@ function Turtle:Window(Text)
 			btn.Parent = tabButtonsScroll
 			btn.BackgroundColor3 = colorSettings["MainButtons"]["BackgroundColor"]
 			btn.BorderColor3 = colorSettings["MainButtons"]["BorderColor"]
+			btn.BorderSizePixel = 0
 			btn.Position = UDim2.new(0.0645, 0, 0, tabButtonOffset + 10)
 			btn.Size = UDim2.new(0, 294, 0, 26)
 			btn.ZIndex = 15
